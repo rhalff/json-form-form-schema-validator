@@ -1,0 +1,23 @@
+module.exports = [
+  {
+    "type": "help",
+    "helpvalue": "Complex keys are only supported with AngularJS version 1.3.x, see <a href=\"https://github.com/Textalk/angular-schema-form/blob/master/docs/knownlimitations.md\">known limitations</a> in the docs."
+  },
+  "['a[\"b\"].c']",
+  {
+    "key": "array-key",
+    "items": [
+      "[array-key][]['a'rr[\"l']",
+      {
+        "key": "[array-key][][˙∆∂∞˚¬]",
+        "title": "Unicode Characters"
+      }
+    ]
+  },
+  {
+    "key": "simple",
+    "items": [
+      "simple.prøp"
+    ]
+  }
+]
