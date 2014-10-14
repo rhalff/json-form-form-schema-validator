@@ -1,4 +1,4 @@
-module.exports = [
+[
   {
     "type": "help",
     "helpvalue": "<h4>Array Example</h4><p>Try adding a couple of forms, reorder by drag'n'drop.</p>"

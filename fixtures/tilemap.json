@@ -1,4 +1,4 @@
-module.exports = [
+[
   "select",
   {
     "key": "select2",
