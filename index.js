@@ -1,13 +1,15 @@
-var schema = require('./schema-form');
+var sjc = require('strip-json-comments');
 var glob = require('glob');
+var fs = require('fs');
+var schema = sjc(fs.readFileSync('./schema-form.json').toString());
 var tv4 = require('tv4');
 
-var g = glob('fixtures/*.js');
+var g = glob('fixtures/*.json');
 
 g.on('match', function(file) {
 console.log('require:', file);
-  var json = require('./' + file);
-console.log(json);
+  var json = sjc(fs.readFileSync('./' + file).toString());
+  console.log(json);
   var res = tv4.validate(json, schema);
 
   if(tv4.error) {
