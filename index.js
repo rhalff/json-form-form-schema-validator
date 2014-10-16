@@ -8,19 +8,18 @@ var g = glob('fixtures/*.json');
 var debug = process.env.DEBUG;
 
 g.on('match', function(file) {
-console.log('require:', file);
+
+  console.log('require:', file);
   var json = sjc(fs.readFileSync('./' + file).toString());
   var res = tv4.validate(json, schema);
 
   if(tv4.error) {
     var idx = tv4.error.dataPath.split('').splice(1).join('');
 
-    if(debug) {
-      console.log(file + ':', tv4.error.message, {
-        dataPath: tv4.error.dataPath,
-        schemaPath: tv4.error.schemaPath
-      }, json[idx]);
-    }
+    console.log(file + ':', tv4.error.message, {
+      dataPath: tv4.error.dataPath,
+      schemaPath: tv4.error.schemaPath
+    }, json[idx]);
 
     process.exit();
   } else {
