@@ -17,6 +17,8 @@
        { "$ref": "#/definitions/submit" },
        { "$ref": "#/definitions/array" },
        { "$ref": "#/definitions/radiobuttons" },
+       { "$ref": "#/definitions/radios" },
+       { "$ref": "#/definitions/radios-inline" },
        { "$ref": "#/definitions/tabs" },
        { "$ref": "#/definitions/subforms" },
        { "$ref": "#/definitions/tabarray" },
@@ -68,10 +70,10 @@
      "properties": {
        "type": { "enum": ["actions"] },
        "items": {
-	 "type": "array",
-	 "items": {
-	   "$ref": "#/definitions/allDefs"
-	 }
+         "type": "array",
+         "items": {
+           "$ref": "#/definitions/allDefs"
+         }
        }
      },
      "required": ["type", "items"]
@@ -101,6 +103,26 @@
      "required": ["type", "titleMap"]
    },
 
+   "radios": {
+     "type": "object",
+     "title": "Radios",
+     "properties": {
+       "type": { "enum": ["radios"] },
+       "titleMap": { "$ref": "#/definitions/titleMap" }
+     },
+     "required": ["type", "titleMap"]
+   },
+
+   "radios-inline": {
+     "type": "object",
+     "title": "Inline Radios",
+     "properties": {
+       "type": { "enum": ["radios-inline"] },
+       "titleMap": { "$ref": "#/definitions/titleMap" }
+     },
+     "required": ["type", "titleMap"]
+   },
+
    "button": {
      "type": "object",
      "title": "Button",
@@ -120,6 +142,7 @@
        "key": { "type": "string" },
        "type": { "enum": ["radiobuttons"] },
        "titleMap": { "$ref": "#/definitions/titleMap" },
+       "notitle": { "type": "boolean" },
        "style": {
          "type": "object",
          "properties": {
@@ -128,7 +151,7 @@
          }
        }
      },
-     "required": ["type", "titleMap"]
+     "required": ["type"]
    },
 
    "tabs": {
