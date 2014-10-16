@@ -10,9 +10,7 @@ var g = glob('fixtures/*.json');
 //var debug = process.env.DEBUG;
 g.on('match', function(file) {
 
-  console.log('require:', file);
   var json = JSON.parse(sjc(fs.readFileSync('./' + file).toString()));
-  console.log(Object.keys(json), Object.keys(schema));
   var res = tv4.validate(json, schema);
 
   if(!res) {
