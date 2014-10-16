@@ -144,7 +144,9 @@
              "title": { "type": "string" },
              "items": {
                "type": "array",
-               "items": { "type": "string" }
+               "items": {
+                 "$ref": "#/definitions/allDefs"
+               }
              }
            }
          }
@@ -205,10 +207,10 @@
        "add": { "type": "string" },
        "remove": { "type": "string" },
        "items": {
-	 "type": "array",
-	 "items": {
-	   "$ref": "#/definitions/allDefs"
-	 }
+         "type": "array",
+         "items": {
+           "$ref": "#/definitions/allDefs"
+         }
        },
        "style": {
          "type": "object",
