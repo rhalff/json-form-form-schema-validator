@@ -49,7 +49,7 @@
      "type": "object",
      "title": "Fieldset",
      "properties": {
-       "type": { "type": "string", "pattern": "fieldset" },
+       "type": { "type": "string", "enum": ["fieldset"] },
        "items": { "$ref": "#/definitions/allDefs" }
      },
      "required": ["type", "items"]
@@ -59,7 +59,7 @@
      "type": "object",
      "title": "Actions",
      "properties": {
-       "type": { "type": "string", "pattern": "actions" },
+       "type": { "enum": ["actions"] },
        "items": { "$ref": "#/definitions/allDefs" }
      },
      "required": ["type", "items"]
@@ -69,7 +69,7 @@
      "type": "object",
      "title": "Conditional",
      "properties": {
-       "type": { "type": "string", "pattern": "conditional" },
+       "type": { "enum": ["conditional"] },
        "condition": { "type": "string" },
        "items": {
          "type": "array",
@@ -83,7 +83,7 @@
      "type": "object",
      "title": "Select",
      "properties": {
-       "type": { "type": "string", "pattern": "select" },
+       "type": { "enum": ["select"] },
        "titleMap": { "$ref": "#/definitions/titleMap" }
      },
      "required": ["type", "titleMap"]
@@ -93,7 +93,7 @@
      "type": "object",
      "title": "Button",
      "properties": {
-       "type": { "type": "string", "pattern": "button" },
+       "type": { "enum": ["button"] },
        "style": { "type": "string" },
        "title": { "type": "string" },
        "onClick": { "type": "string" }
@@ -106,7 +106,7 @@
      "title": "Radio Buttons",
      "properties": {
        "key": { "type": "string" },
-       "type": { "type": "string", "pattern": "radiobuttons" },
+       "type": { "enum": ["radiobuttons"] },
        "titleMap": { "$ref": "#/definitions/titleMap" },
        "style": {
          "type": "object",
@@ -123,7 +123,7 @@
      "type": "object",
      "title": "Tabs",
      "properties": {
-       "type": { "type": "string", "pattern": "tabs" },
+       "type": { "enum": ["tabs"] },
        "tabs": {
          "type": "array",
          "items": {
@@ -164,7 +164,7 @@
      "type": "object",
      "properties": {
        "key": { "type": "string" },
-       "type": { "type": "string", "pattern": "array" },
+       "type": { "enum": ["array"] },
        "add": { "type": "string" },
        "items": { "$ref": "#/definitions/noExists" },
        "style": {
@@ -183,7 +183,7 @@
      "type": "object",
      "title": "Tab Array",
      "properties": {
-       "type": { "type": "string", "pattern": "tabarray" },
+       "type": { "enum": ["tabarray"] },
        "tabType": { "type": "string", "enum": ["top", "left", "right"] },
        "title": { "type": "string" },
        "key": { "type": "string" },
@@ -205,7 +205,7 @@
      "type": "object",
      "title": "Help",
      "properties": {
-       "type": { "type": "string", "pattern": "help" },
+       "type": { "enum": ["help"] },
        "helpvalue": { "type": "string" }
      },
      "required": ["type", "helpvalue"]
@@ -217,7 +217,7 @@
      "properties": {
        "key": { "type": "string" },
        "title": { "type": "string" },
-       "type": { "type": "string", "pattern": "textarea" }
+       "type": { "enum": ["textarea"] }
      },
      "required": ["key", "type"]
    },
@@ -228,7 +228,7 @@
      "properties": {
        "key": { "type": "string" },
        "title": { "type": "string" },
-       "type": { "type": "string", "pattern": "checkbox" }
+       "type": { "enum": ["checkbox"] }
      },
      "required": ["key", "type"]
    },
@@ -240,7 +240,7 @@
        "key": { "type": "string" },
        "title": { "type": "string" },
        "style": { "type": "string" },
-       "type": { "type": "string", "pattern": "submit" }
+       "type": { "enum": ["submit"] }
      },
      "required": ["type"]
    }
