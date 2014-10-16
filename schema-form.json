@@ -9,24 +9,25 @@
    "allDefs": {
      "anyOf": [
        { "type": "string" },
-       { "$ref": "#/definitions/fieldset" },
        { "$ref": "#/definitions/actions" },
-       { "$ref": "#/definitions/conditional" },
-       { "$ref": "#/definitions/select" },
-       { "$ref": "#/definitions/button" },
-       { "$ref": "#/definitions/submit" },
        { "$ref": "#/definitions/array" },
+       { "$ref": "#/definitions/button" },
+       { "$ref": "#/definitions/checkbox" },
+       { "$ref": "#/definitions/checkboxes" },
+       { "$ref": "#/definitions/conditional" },
+       { "$ref": "#/definitions/default" },
+       { "$ref": "#/definitions/fieldset" },
+       { "$ref": "#/definitions/help" },
        { "$ref": "#/definitions/radiobuttons" },
        { "$ref": "#/definitions/radios" },
        { "$ref": "#/definitions/radios-inline" },
-       { "$ref": "#/definitions/tabs" },
-       { "$ref": "#/definitions/subforms" },
-       { "$ref": "#/definitions/tabarray" },
-       { "$ref": "#/definitions/textarea" },
-       { "$ref": "#/definitions/checkbox" },
+       { "$ref": "#/definitions/select" },
        { "$ref": "#/definitions/star" },
-       { "$ref": "#/definitions/default" },
-       { "$ref": "#/definitions/help" }
+       { "$ref": "#/definitions/submit" },
+       { "$ref": "#/definitions/subforms" },
+       { "$ref": "#/definitions/tabs" },
+       { "$ref": "#/definitions/tabarray" },
+       { "$ref": "#/definitions/textarea" }
      ]
    },
 
@@ -150,6 +151,17 @@
            "unselected": { "type": "string" }
          }
        }
+     },
+     "required": ["type"]
+   },
+
+   "checkboxes": {
+     "type": "object",
+     "title": "Checkboxes",
+     "properties": {
+       "key": { "type": "string" },
+       "type": { "enum": ["checkboxes"] },
+       "titleMap": { "$ref": "#/definitions/titleMap" }
      },
      "required": ["type"]
    },
