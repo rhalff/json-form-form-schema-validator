@@ -1,0 +1,27 @@
+[{
+    "type": "array",
+    "key": "comments",
+    "add": "New",
+    "style": {
+      "add": "btn-success"
+    },
+    "items": [
+      "comments[].name",
+      "comments[].email",
+      {
+        "type": "conditional",
+        "condition": "model.comments[arrayIndex].email",
+        "items": [
+          {
+            "key": "comments[].spam",
+            "type": "checkbox",
+            "title": "Yes I want spam."
+          }
+        ]
+      },
+      {
+        "key": "comments[].comment",
+        "type": "textarea"
+      }
+    ]
+  }]

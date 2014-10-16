@@ -22,6 +22,7 @@
        { "$ref": "#/definitions/tabarray" },
        { "$ref": "#/definitions/textarea" },
        { "$ref": "#/definitions/checkbox" },
+       { "$ref": "#/definitions/star" },
        { "$ref": "#/definitions/help" }
      ]
    },
@@ -49,8 +50,13 @@
      "type": "object",
      "title": "Fieldset",
      "properties": {
-       "type": { "type": "string", "enum": ["fieldset"] },
-       "items": { "$ref": "#/definitions/allDefs" }
+       "type": { "enum": ["fieldset"] },
+       "items": {     
+	 "type": "array",
+	 "items": {
+	   "$ref": "#/definitions/allDefs"
+	 }
+       }
      },
      "required": ["type", "items"]
    },
@@ -60,7 +66,12 @@
      "title": "Actions",
      "properties": {
        "type": { "enum": ["actions"] },
-       "items": { "$ref": "#/definitions/allDefs" }
+       "items": {     
+	 "type": "array",
+	 "items": {
+	   "$ref": "#/definitions/allDefs"
+	 }
+       }
      },
      "required": ["type", "items"]
    },
@@ -73,7 +84,7 @@
        "condition": { "type": "string" },
        "items": {
          "type": "array",
-         "items": { "type": "string" }
+         "items": { "$ref": "#/definitions/allDefs" }
        }
      },
      "required": ["type", "items", "condition"]
@@ -145,6 +156,7 @@
      "type": "object",
      "title": "Subforms",
      "properties": {
+       "type": { "enum": "subform" },
        "key": { "type": "string" },
        "add": { "type": "string" },
        "items": { "type": "string" },
@@ -156,8 +168,7 @@
          }
        }
      },
-     // problem, anything goes.
-     "required": ["key"]
+     "required": ["key","type"]
    },
 
    "array": {
@@ -166,7 +177,12 @@
        "key": { "type": "string" },
        "type": { "enum": ["array"] },
        "add": { "type": "string" },
-       "items": { "$ref": "#/definitions/noExists" },
+       "items": { 
+	 "type": "array",
+	 "items": {
+           "$ref": "#/definitions/allDefs"
+	 }
+       },
        "style": {
          "type": "object",
          "properties": {
@@ -174,8 +190,6 @@
          }
        }
      },
-     // force array type to be present for now, to make sure
-     // this does not validate other stuff.
      "required": ["type", "items"]
    },
 
@@ -189,7 +203,12 @@
        "key": { "type": "string" },
        "add": { "type": "string" },
        "remove": { "type": "string" },
-       "items": { "$ref": "#/definitions/allDefs" },
+       "items": {     
+	 "type": "array",
+	 "items": {
+	   "$ref": "#/definitions/allDefs"
+	 }
+       },
        "style": {
          "type": "object",
          "properties": {
@@ -222,6 +241,17 @@
      "required": ["key", "type"]
    },
 
+   "text": {
+     "type": "object",
+     "title": "Textfield",
+     "properties": {
+       "key": { "type": "string" },
+       "title": { "type": "string" },
+       "type": { "enum": ["text"] }
+     },
+     "required": ["key", "type"]
+   },
+
    "checkbox": {
      "type": "object",
      "title": "Checkbox",
@@ -243,7 +273,10 @@
        "type": { "enum": ["submit"] }
      },
      "required": ["type"]
+   },
+   
+   "star": {
+     "enum": ["*"]
    }
-
  }
 }

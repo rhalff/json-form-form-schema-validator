@@ -1,8 +1,7 @@
 [
   {
     "type": "fieldset",
-    "title": "Stuff"
-    /*,
+    "title": "Stuff",
     "items": [
       {
         "type": "tabs",
@@ -37,7 +36,6 @@
         ]
       }
     ]
-    */
   },
   {
     "type": "help",
@@ -46,15 +44,13 @@
   "soul",
   {
     "type": "conditional",
-    "condition": "modelData.soul"
-    /*,
+    "condition": "modelData.soul",
     "items": [
       {
         "key": "soulserial",
         "placeholder": "ex. 666"
       }
     ]
-    */
   },
   {
     "key": "date",
@@ -98,7 +94,7 @@
     "notitle": true
   },
   {
-    "type": "actions"/*,
+    "type": "actions",
     "items": [
       {
         "type": "submit",
@@ -111,6 +107,6 @@
         "title": "Noooooooooooo",
         "onClick": "sayNo()"
       }
-    ]*/
+    ]
   }
 ]
