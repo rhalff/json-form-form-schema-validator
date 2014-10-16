@@ -31,16 +31,7 @@ g.on('match', function(file) {
     console.log(file + ': OK');
   }
 
-  //tv4.reset();
+  tv4.reset();
 
 
 });
-
-/*
-tv4.addSchema('bla', schema);
-var s = tv4.getSchema('bla');
-
-// var res = tv4.validate(data, schema);
-
-console.log(JSON.stringify(s, null, 2));
-*/
