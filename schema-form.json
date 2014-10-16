@@ -23,6 +23,7 @@
        { "$ref": "#/definitions/textarea" },
        { "$ref": "#/definitions/checkbox" },
        { "$ref": "#/definitions/star" },
+       { "$ref": "#/definitions/default" },
        { "$ref": "#/definitions/help" }
      ]
    },
@@ -51,7 +52,7 @@
      "title": "Fieldset",
      "properties": {
        "type": { "enum": ["fieldset"] },
-       "items": {     
+       "items": {
 	 "type": "array",
 	 "items": {
 	   "$ref": "#/definitions/allDefs"
@@ -66,7 +67,7 @@
      "title": "Actions",
      "properties": {
        "type": { "enum": ["actions"] },
-       "items": {     
+       "items": {
 	 "type": "array",
 	 "items": {
 	   "$ref": "#/definitions/allDefs"
@@ -177,7 +178,7 @@
        "key": { "type": "string" },
        "type": { "enum": ["array"] },
        "add": { "type": "string" },
-       "items": { 
+       "items": {
 	 "type": "array",
 	 "items": {
            "$ref": "#/definitions/allDefs"
@@ -203,7 +204,7 @@
        "key": { "type": "string" },
        "add": { "type": "string" },
        "remove": { "type": "string" },
-       "items": {     
+       "items": {
 	 "type": "array",
 	 "items": {
 	   "$ref": "#/definitions/allDefs"
@@ -274,9 +275,16 @@
      },
      "required": ["type"]
    },
-   
+
    "star": {
      "enum": ["*"]
+   },
+
+   "default": {
+     "not": {
+       "type": "object",
+       "required": ["type"]
+     }
    }
  }
 }
